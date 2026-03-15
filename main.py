@@ -1,3 +1,5 @@
+import knn
+
 # Data preprocessing
 def readFile():
     fileName = open("MushroomData_8000.txt")
@@ -23,7 +25,9 @@ def splitData(data):
             answer.append(b[0])
             test.append(b[1:])
         check = check+1
-    print(len(train), " ", len(test), " ", answer)
+    c = train[1]
+    # print(c[1])
+    knn.knn(train, 5)
     return train, test, answer
 
 def main():
@@ -31,4 +35,5 @@ def main():
 
 
 if __name__ == "__main__":
+    knn 
     main()
