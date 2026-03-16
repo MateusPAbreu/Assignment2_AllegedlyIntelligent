@@ -1,14 +1,18 @@
 import math
 
 def knn(data, k):
-    for i in range(len(data)):
+    for i in range(len(data)): 
         main = data[i]
         # FIXES THIS NEEDS: 
-        # i+j goes out of bonds
+        # Right now it breaks because, when it reaches the last element, I think I should go back to look at the neighbors above.
         # at the moment I'm only considering the items below the current item, have to change that to consider those above it too.
         for j in range(k):
-            nearest = data[i+j]
-            print(calc(main, nearest))
+            if i+j >= len(data):
+                #do something
+                nearest = data[i+1]
+            else:
+                nearest = data[i+j]
+            print(i, j, len(data))
             #should probably get the result, compare what's the highest and then determine if it's poisonous or edible based on that
         # print(main, nearest)
 
