@@ -27,7 +27,8 @@ def splitData(data):
         check = check+1
     c = train[1]
     # print(c[1])
-    knn.knn(train, 5)
+    #knn.knn(train, 5)
+    knn.KClosest(train[157], train, 5)
     return train, test, answer
 
 def main():
