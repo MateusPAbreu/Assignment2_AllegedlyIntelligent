@@ -121,9 +121,6 @@ def accuracy_score(y_true: List[int], y_pred: List[int]) -> float:
             correct += 1
     return correct / len(y_true) if y_true else 0.0
 
-
-
-# confusion matrix for the test results
 # tp = edible predicted as edible
 # tn = poisonous predicted as poisonous
 # fp = poisonous predicted as edible
