@@ -7,10 +7,15 @@ def KClosest(element, data, k):
     foundItFlag = False
 
     for i in range(len(data)):
+        foundItFlag = False
         for j in range(len(KClosestIndex)):
             if(calc(element, data[i])<KClosestDistance[j] or KClosestDistance[j]==-1):
                 KClosestIndex.insert(j, i)
                 KClosestDistance.insert(j, calc(element, data[i]))
+                foundItFlag = True
+                break
+            #This stops knn from tracking more rows than needed
+            if(j>k):
                 foundItFlag = True
                 break
         if(not foundItFlag):
