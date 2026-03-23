@@ -186,7 +186,7 @@ def main():
 
     X_unknown_raw = unknown_rows
 
-    # Learn the encoding from the training data, then apply it to all datasets
+    # Learn the encoding from the training data, then apply it to datasets
     encoder = onehotencoding()
     encoder.fit(X_train_raw)
 
@@ -221,7 +221,7 @@ def main():
         for pred in unknown_predictions:
             f.write(pred + "\n")
 
-    print("\npredictionResultPER.txt has been created.")
+    print("\npredictionResultPER.txt is created.")
 
 
 if __name__ == "__main__":
