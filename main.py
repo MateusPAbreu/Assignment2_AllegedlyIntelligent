@@ -5,7 +5,7 @@ def readFile():
     fileName = open("MushroomData_8000.txt")
     info = []
     for lines in fileName:
-        info.append(lines.rstrip('\n'))
+        info.append(lines.rstrip(',\n'))
     splitData(info)
 
 def splitData(data):
