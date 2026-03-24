@@ -68,7 +68,8 @@ def main():
         for i in range(len(test)):
             data, KClosestIndex, m = knn.KClosest(test[i], train, k)
             result = knn.checkNeighbors(data, KClosestIndex, m)
-            if(test[i] == 'p'): #checks if poison
+            #print(answer[i])
+            if(answer[i] == 112): #checks if poison
                 if(result == 'p'):
                     TruePositive[k] += 1
                 else:
@@ -81,7 +82,12 @@ def main():
         
         
         Accuracy[k] = (TruePositive[k]+TrueNegitive[k])/len(test)
-        print(Accuracy)
+        #print(Accuracy)
+        print("TruePositive:", TruePositive)
+        print("FalsePositive:", FalsePositive)
+        print("TrueNegitive:", TrueNegitive)
+        print("FalseNegitive:", FalseNegitive)
+        print("Acc:", Accuracy)
 
     print("TruePositive:", TruePositive)
     print("FalsePositive:", FalsePositive)
