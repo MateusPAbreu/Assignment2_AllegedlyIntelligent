@@ -47,6 +47,48 @@ def main():
         print(knn.checkNeighbors(data, KClosestIndex, k))
         f.write(knn.checkNeighbors(data, KClosestIndex, k) +'\n')
 
+    #Checking KNN against testing data set
+    TruePositive = []
+    FalsePositive = []
+    TrueNegitive = []
+    FalseNegitive = []
+    Accuracy = []
+    TruePositive.append(0)
+    FalsePositive.append(0)
+    TrueNegitive.append(0)
+    FalseNegitive.append(0)
+    Accuracy.append(0)
+
+    for k in range(1,15):
+        TruePositive.append(0)
+        FalsePositive.append(0)
+        TrueNegitive.append(0)
+        FalseNegitive.append(0)
+        Accuracy.append(0)
+        for i in range(len(test)):
+            data, KClosestIndex, m = knn.KClosest(test[i], train, k)
+            result = knn.checkNeighbors(data, KClosestIndex, m)
+            if(test[i] == 'p'): #checks if poison
+                if(result == 'p'):
+                    TruePositive[k] += 1
+                else:
+                    FalseNegitive[k] += 1
+            else:
+                if(result == 'p'):
+                    FalsePositive[k] += 1
+                else:
+                    TrueNegitive[k] += 1
+        
+        
+        Accuracy[k] = (TruePositive[k]+TrueNegitive[k])/len(test)
+        print(Accuracy)
+
+    print("TruePositive:", TruePositive)
+    print("FalsePositive:", FalsePositive)
+    print("TrueNegitive:", TrueNegitive)
+    print("FalseNegitive:", FalseNegitive)
+    print("Acc:", Accuracy)
+
 
 if __name__ == "__main__":
     knn 
