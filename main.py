@@ -59,7 +59,7 @@ def main():
     FalseNegitive.append(0)
     Accuracy.append(0)
 
-    for k in range(1,15):
+    for k in range(1, 20):
         TruePositive.append(0)
         FalsePositive.append(0)
         TrueNegitive.append(0)
